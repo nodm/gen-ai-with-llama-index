@@ -1,11 +1,21 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "composite": true,
+    "incremental": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "outDir": "./build",
     "rootDir": "./src",
-    "outDir": "build"
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "tsBuildInfoFile": "./build/.tsbuildinfo"
   },
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ]
+  "ts-node": {
+    "files": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }
